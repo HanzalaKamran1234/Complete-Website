@@ -7,73 +7,81 @@
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
+  margin-top: 4rem;
 }
 
+/* Service Card styling */
 .serviceCard {
+  background-color: var(--color-bg-light);
+  border: var(--border-light);
+  padding: 2.75rem 2.25rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
-/* Icon Wrapper */
 .iconWrapper {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--border-radius-md);
-  background-color: rgba(75, 29, 140, 0.05);
-  color: var(--color-primary-light);
+  width: 50px;
+  height: 50px;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(74, 28, 116, 0.05);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
 }
 
 .iconWrapper svg {
   width: 24px;
   height: 24px;
-  transition: transform 0.4s ease;
 }
 
-/* Hover interactions */
-.serviceCard:hover .iconWrapper {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-  color: var(--color-accent);
-  box-shadow: 0 8px 20px rgba(75, 29, 140, 0.2);
-}
-
-.serviceCard:hover .iconWrapper svg {
-  transform: scale(1.1);
-}
-
-/* Typography inside card */
 .cardTitle {
-  font-size: 1.35rem;
+  font-family: var(--font-headings);
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
-  transition: color 0.3s ease;
-}
-
-.serviceCard:hover .cardTitle {
-  color: var(--color-primary);
+  color: var(--color-text-dark);
+  margin-bottom: 1rem;
 }
 
 .cardDesc {
   font-size: 0.95rem;
+  color: var(--color-text-muted);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.25rem;
   flex-grow: 1;
 }
 
-/* Link with sliding arrow */
-.learnMore {
-  font-family: var(--font-headings);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--color-primary-light);
+/* Interactive Packages CTA Button */
+.packagesBtn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  width: max-content;
+  gap: 8px;
+  font-family: var(--font-headings);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  align-self: flex-start;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.packagesBtn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+  border-radius: var(--border-radius-full);
 }
 
 .arrow {
@@ -82,35 +90,307 @@
   transition: transform 0.3s ease;
 }
 
-.learnMore:hover {
-  color: var(--color-accent);
+.packagesBtn:hover {
+  color: var(--color-primary-light);
 }
 
-.serviceCard:hover .learnMore {
-  color: var(--color-primary);
+.packagesBtn:hover::after {
+  width: 100%;
 }
 
-.serviceCard:hover .learnMore:hover {
-  color: var(--color-accent);
-}
-
-.serviceCard:hover .arrow {
+.packagesBtn:hover .arrow {
   transform: translateX(4px);
 }
 
-/* Responsive Styles */
+/* Service Card Hover state overrides */
+.serviceCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(74, 28, 116, 0.15);
+  box-shadow: var(--shadow-lg);
+  background-color: var(--color-bg-white);
+}
+
+.serviceCard:hover .iconWrapper {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-purple);
+}
+
+/* Glassmorphic Interactive Packages Overlay Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(47, 16, 75, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 1.5rem;
+}
+
+.modalOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalContent {
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 40px 80px rgba(74, 28, 116, 0.12);
+  padding: 3rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.95) translateY(15px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.modalOpen .modalContent {
+  transform: scale(1) translateY(0);
+}
+
+/* Modal Header styling */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(74, 28, 116, 0.08);
+  padding-bottom: 1.5rem;
+}
+
+.modalHeaderTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modalBadge {
+  font-family: var(--font-headings);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 2px;
+}
+
+.modalHeading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  letter-spacing: -0.5px;
+}
+
+.closeBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(74, 28, 116, 0.05);
+  color: var(--color-text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.closeBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.closeBtn:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+/* Packages Grid layout */
+.packagesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* Package Card base styling */
+.packageCard {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--border-radius-md);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(74, 28, 116, 0.03);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  height: 100%;
+}
+
+.packageCard:hover {
+  transform: translateY(-5px);
+  background: #FFFFFF;
+  border-color: rgba(74, 28, 116, 0.15);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Popular Card highlights */
+.popularCard {
+  background: #FFFFFF;
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 20px 45px rgba(207, 135, 0, 0.15);
+}
+
+.popularCard:hover {
+  border-color: var(--color-accent-light);
+  box-shadow: 0 25px 50px rgba(207, 135, 0, 0.22);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: var(--color-text-dark);
+  font-family: var(--font-headings);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--border-radius-full);
+  letter-spacing: 1px;
+  box-shadow: var(--shadow-gold);
+}
+
+.packageHeader {
+  margin-bottom: 2rem;
+}
+
+.packageName {
+  font-family: var(--font-headings);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.packagePrice {
+  font-family: var(--font-headings);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.popularCard .packagePrice {
+  color: var(--color-accent);
+}
+
+/* Checklist Styling */
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+  flex-grow: 1;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+  line-height: 1.4;
+}
+
+.checkIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.popularCard .checkIcon {
+  color: var(--color-primary);
+}
+
+/* Metadata Row (Delivery/Revisions) */
+.packageMeta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  border-top: 1px solid rgba(74, 28, 116, 0.08);
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metaLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metaVal {
+  font-family: var(--font-headings);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+/* Order Link Wrapper & Button styling */
+.orderLink {
+  width: 100%;
+  display: block;
+}
+
+.orderBtn {
+  width: 100%;
+}
+
+/* Responsive Media Queries */
 @media (max-width: 992px) {
   .servicesGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
+  }
+  .packagesGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .modalContent {
+    padding: 2.25rem;
   }
 }
 
 @media (max-width: 768px) {
   .servicesGrid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .serviceCard {
-    padding: 2rem;
+  .modalHeading {
+    font-size: 1.65rem;
+  }
+  .modalContent {
+    padding: 2rem 1.5rem;
   }
 }
