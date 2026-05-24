@@ -11,6 +11,9 @@ import Cta from './sections/Cta/Cta';
 import Contact from './sections/Contact/Contact';
 import Footer from './sections/Footer/Footer';
 
+// Sections
+import About from './sections/About/About';
+
 // Pages
 import { PortfolioPage } from './pages/Portfolio/PortfolioPage';
 import { CaseStudyPage } from './pages/CaseStudy/CaseStudyPage';
@@ -121,6 +124,7 @@ export const App: React.FC = () => {
           <Hero />
         </div>
         <TrustedBy />
+        <About />
         <Services />
         <Portfolio />
         <WhyChooseUs />

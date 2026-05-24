@@ -71,6 +71,7 @@ export const Footer: React.FC = () => {
             <h4 className={styles.colTitle}>Agency</h4>
             <ul className={styles.linksList}>
               <li><a href="#home" className={styles.link}>Home</a></li>
+              <li><a href="#about" className={styles.link}>About</a></li>
               <li><a href="#services" className={styles.link}>Services</a></li>
               <li><a href="#portfolio" className={styles.link}>Our Work</a></li>
               <li><a href="#why-us" className={styles.link}>Why Choose Us</a></li>
