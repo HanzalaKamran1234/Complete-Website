@@ -41,10 +41,24 @@ export const Navbar: React.FC = () => {
       <div className={`${styles.navContainer} container`}>
         {/* Logo */}
         <a href="#home" className={styles.logo} onClick={closeMobileMenu}>
-          <span className={styles.logoMain}>AURA</span>
-          <span className={styles.logoSub}>DIGITAL</span>
-          <span className={styles.logoDot}></span>
+          <div className={styles.logoIcon}>
+            <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 15H30M15 25H25M15 35H25" stroke="var(--color-primary)" strokeWidth="4" strokeLinecap="round" />
+              <path d="M38 15V45H75V15H46" stroke="var(--color-primary)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M50 25H62V35H50V25Z" stroke="var(--color-primary)" strokeWidth="3" strokeLinejoin="round" />
+              <path d="M32 45H16M16 45L22 39M16 45L22 51" stroke="var(--color-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+              <rect x="24" y="42" width="6" height="6" rx="1.5" fill="var(--color-accent)" />
+              <rect x="74" y="8" width="4" height="4" fill="var(--color-accent-light)" />
+              <rect x="80" y="5" width="5" height="5" fill="var(--color-accent)" />
+              <rect x="83" y="12" width="3" height="3" fill="var(--color-accent-light)" />
+            </svg>
+          </div>
+          <div className={styles.logoText}>
+            <span className={styles.logoMain}>SOCIALEDGE</span>
+            <span className={styles.logoSub}>(SMC-PRIVATE) LIMITED</span>
+          </div>
         </a>
+
 
         {/* Desktop Nav Links */}
         <nav className={styles.navMenu}>
