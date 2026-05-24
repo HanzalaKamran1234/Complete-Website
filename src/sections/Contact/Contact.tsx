@@ -143,7 +143,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div className={styles.detailText}>
                     <span className={styles.detailLabel}>Email Our Partners</span>
-                    <a href="mailto:partners@socialedge.com.pk" className={styles.detailLink}>partners@socialedge.com.pk</a>
+                    <a href="mailto:14starssocaileedge@gmail.com" className={styles.detailLink}>14starssocaileedge@gmail.com</a>
                   </div>
                 </div>
 
@@ -155,7 +155,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div className={styles.detailText}>
                     <span className={styles.detailLabel}>Call Our Office</span>
-                    <a href="tel:+18005550199" className={styles.detailLink}>+1 (800) 555-0199</a>
+                    <a href="tel:+923117501630" className={styles.detailLink}>+92 311 7501630</a>
                   </div>
                 </div>
 
@@ -168,7 +168,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div className={styles.detailText}>
                     <span className={styles.detailLabel}>Headquarters</span>
-                    <p className={styles.detailVal}>88 Luxury Plaza, Suite 400<br />New York, NY 10001</p>
+                    <p className={styles.detailVal}>Islamabad, Pakistan</p>
                   </div>
                 </div>
               </div>
