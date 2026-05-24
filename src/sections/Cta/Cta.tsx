@@ -32,7 +32,7 @@ export const Cta: React.FC = () => {
           {/* Decorative SVG Graphic */}
           <div className={styles.decoGraphic}>
             <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="100" cy="100" r="90" stroke="rgba(212, 160, 23, 0.08)" strokeWidth="2" strokeDasharray="5 5" />
+              <circle cx="100" cy="100" r="90" stroke="rgba(212, 161, 42, 0.08)" strokeWidth="2" strokeDasharray="5 5" />
               <circle cx="100" cy="100" r="60" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" />
               <path d="M100 20V180" stroke="rgba(255, 255, 255, 0.03)" strokeWidth="1" />
               <path d="M20 100H180" stroke="rgba(255, 255, 255, 0.03)" strokeWidth="1" />

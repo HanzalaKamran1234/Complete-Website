@@ -6,7 +6,7 @@
 
 .ctaBox {
   position: relative;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #200a3e 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   border-radius: var(--border-radius-lg);
   padding: 5rem 4rem;
   overflow: hidden;

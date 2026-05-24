@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
                   <span className={styles.controlDot}></span>
                   <span className={styles.controlDot}></span>
                 </div>
-                <div className={styles.browserUrl}>https://auradigital.agency/dashboard</div>
+                <div className={styles.browserUrl}>https://socialedge.agency/dashboard</div>
               </div>
               
               <div className={styles.browserBody}>

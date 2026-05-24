@@ -143,7 +143,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div className={styles.detailText}>
                     <span className={styles.detailLabel}>Email Our Partners</span>
-                    <a href="mailto:partners@auradigital.agency" className={styles.detailLink}>partners@auradigital.agency</a>
+                    <a href="mailto:partners@socialedge.com.pk" className={styles.detailLink}>partners@socialedge.com.pk</a>
                   </div>
                 </div>
 
@@ -179,7 +179,7 @@ export const Contact: React.FC = () => {
                   <span className={styles.mapPin}>
                     <span className={styles.pinPulse}></span>
                   </span>
-                  <span className={styles.mapLabel}>AURA HQ — NYC</span>
+                  <span className={styles.mapLabel}>SOCIALEDGE HQ</span>
                 </div>
               </div>
             </div>

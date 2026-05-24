@@ -68,7 +68,7 @@ export const Portfolio: React.FC = () => {
             <div className={styles.novaChart}>
               <svg viewBox="0 0 100 40" fill="none" className={styles.novaSvgChart}>
                 <path d="M0,35 Q15,10 30,25 T60,5 T90,20 L100,20" stroke="var(--color-accent)" strokeWidth="3" fill="none" />
-                <path d="M0,35 Q15,10 30,25 T60,5 T90,20 L100,20 L100,40 L0,40 Z" fill="rgba(212, 160, 23, 0.05)" />
+                <path d="M0,35 Q15,10 30,25 T60,5 T90,20 L100,20 L100,40 L0,40 Z" fill="rgba(212, 161, 42, 0.05)" />
                 <circle cx="60" cy="5" r="3" fill="var(--color-accent-light)" />
               </svg>
             </div>

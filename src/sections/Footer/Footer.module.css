@@ -170,7 +170,7 @@
 .input:focus {
   border-color: var(--color-accent);
   background-color: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.1);
+  box-shadow: 0 0 0 3px rgba(212, 161, 42, 0.1);
 }
 
 .submitBtn {
@@ -196,7 +196,7 @@
 
 .submitBtn:hover {
   background: var(--color-accent-light);
-  box-shadow: 0 0 10px rgba(212, 160, 23, 0.3);
+  box-shadow: 0 0 10px rgba(212, 161, 42, 0.3);
 }
 
 .subscribeSuccess {

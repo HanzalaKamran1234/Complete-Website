@@ -65,7 +65,7 @@
 
 .interactive.glass:hover {
   background: rgba(255, 255, 255, 0.8);
-  border-color: rgba(212, 160, 23, 0.3);
+  border-color: rgba(212, 161, 42, 0.3);
 }
 
 .interactive.accent:hover {
@@ -91,8 +91,8 @@
   transition: opacity 0.4s ease;
   background: radial-gradient(
     600px circle at var(--x, 0px) var(--y, 0px),
-    rgba(212, 160, 23, 0.1) 0%,
-    rgba(212, 160, 23, 0) 50%
+    rgba(212, 161, 42, 0.1) 0%,
+    rgba(212, 161, 42, 0) 50%
   );
 }
 

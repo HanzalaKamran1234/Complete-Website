@@ -20,7 +20,7 @@ export const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      quote: "Aura Digital transformed our online presence. Their engineering expertise combined with a refined luxury aesthetic gave us a website that truly represents our brand and has boosted our organic leads by 180%.",
+      quote: "SocialEdge transformed our online presence. Their engineering expertise combined with a refined luxury aesthetic gave us a website that truly represents our brand and has boosted our organic leads by 180%.",
       author: "Vivienne Vance",
       role: "Creative Director",
       company: "Luxe & Co.",
