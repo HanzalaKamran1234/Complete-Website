@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './sections/Navbar/Navbar';
 import Hero from './sections/Hero/Hero';
 import TrustedBy from './sections/TrustedBy/TrustedBy';
@@ -11,7 +11,25 @@ import Cta from './sections/Cta/Cta';
 import Contact from './sections/Contact/Contact';
 import Footer from './sections/Footer/Footer';
 
+// Pages
+import { PortfolioPage } from './pages/Portfolio/PortfolioPage';
+import { CaseStudyPage } from './pages/CaseStudy/CaseStudyPage';
+import { ServiceDetailPage } from './pages/ServiceDetail/ServiceDetailPage';
+
 export const App: React.FC = () => {
+  const [currentRoute, setCurrentRoute] = useState<string>(() => {
+    return window.location.hash || '#';
+  });
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentRoute(window.location.hash || '#');
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   useEffect(() => {
     // Scroll reveal observer initialization
     const revealElements = document.querySelectorAll('.reveal');
@@ -55,13 +73,53 @@ export const App: React.FC = () => {
       revealElements.forEach((el) => observer.unobserve(el));
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [currentRoute]);
 
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
+  // Handle routing scroll side effects
+  useEffect(() => {
+    const hash = currentRoute;
+    const isSubpage = hash.startsWith('#portfolio') || 
+                      hash.startsWith('#project/') || 
+                      hash.startsWith('#service/');
+
+    if (isSubpage) {
+      window.scrollTo(0, 0);
+    } else {
+      if (!hash || hash === '#' || hash === '#home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const timer = setTimeout(() => {
+          const element = document.getElementById(hash.substring(1));
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [currentRoute]);
+
+  const renderMainContent = () => {
+    if (currentRoute === '#portfolio') {
+      return <PortfolioPage />;
+    }
+
+    if (currentRoute.startsWith('#project/')) {
+      const slug = currentRoute.substring('#project/'.length);
+      return <CaseStudyPage projectSlug={slug} />;
+    }
+
+    if (currentRoute.startsWith('#service/')) {
+      const slug = currentRoute.substring('#service/'.length);
+      return <ServiceDetailPage serviceSlug={slug} />;
+    }
+
+    // Default Home Layout
+    return (
+      <>
+        <div id="home">
+          <Hero />
+        </div>
         <TrustedBy />
         <Services />
         <Portfolio />
@@ -70,6 +128,15 @@ export const App: React.FC = () => {
         <Testimonials />
         <Cta />
         <Contact />
+      </>
+    );
+  };
+
+  return (
+    <>
+      <Navbar />
+      <main>
+        {renderMainContent()}
       </main>
       <Footer />
     </>

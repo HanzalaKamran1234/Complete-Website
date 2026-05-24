@@ -20,6 +20,7 @@ interface Service {
   description: string;
   icon: React.ReactNode;
   packages: Package[];
+  slug: string;
 }
 
 export const Services: React.FC = () => {
@@ -44,6 +45,7 @@ export const Services: React.FC = () => {
     {
       id: 1,
       title: 'Full Stack Website Development',
+      slug: 'web-dev',
       description: 'Modern responsive business websites, ecommerce stores, dashboards, and custom web applications with premium UI/UX.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -80,6 +82,7 @@ export const Services: React.FC = () => {
     {
       id: 2,
       title: 'Company Profile Design',
+      slug: 'branding',
       description: 'Professional company profiles, pitch decks, branding documents, and corporate presentations.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -118,6 +121,7 @@ export const Services: React.FC = () => {
     {
       id: 3,
       title: 'App Development',
+      slug: 'app-dev',
       description: 'Modern Android and iOS mobile applications with elegant UI/UX and scalable architecture.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -153,6 +157,7 @@ export const Services: React.FC = () => {
     {
       id: 4,
       title: 'CRM Software',
+      slug: 'crm',
       description: 'Business management systems and CRM solutions to manage customers, sales, teams, and automation.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -190,6 +195,7 @@ export const Services: React.FC = () => {
     {
       id: 5,
       title: 'UI/UX Designing',
+      slug: 'ui-ux',
       description: 'Premium web and mobile UI/UX design with modern interfaces and interactive prototypes.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -226,6 +232,7 @@ export const Services: React.FC = () => {
     {
       id: 6,
       title: 'Video Editing',
+      slug: 'video-editing',
       description: 'Professional video editing for social media, advertisements, promotional content, and branding.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -283,13 +290,19 @@ export const Services: React.FC = () => {
               <h3 className={styles.cardTitle}>{service.title}</h3>
               <p className={styles.cardDesc}>{service.description}</p>
               
-              <button className={styles.packagesBtn} onClick={() => openPackages(service)}>
-                View Packages
-                <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </button>
+              <div style={{ display: 'flex', gap: '15px', alignItems: 'center', marginTop: 'auto', width: '100%' }}>
+                <button className={styles.packagesBtn} onClick={() => openPackages(service)}>
+                  View Packages
+                  <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </button>
+                <a href={`#service/${service.slug}`} style={{ fontSize: '0.9rem', color: 'var(--color-primary-light)', fontWeight: 700, textDecoration: 'none', marginLeft: 'auto', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  Learn More
+                  <span>&rarr;</span>
+                </a>
+              </div>
             </Card>
           ))}
         </div>
