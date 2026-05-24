@@ -173,14 +173,18 @@ export const Contact: React.FC = () => {
                 </div>
               </div>
 
-              {/* Mock map graphic placeholder */}
+              {/* Interactive Google Map */}
               <div className={styles.mapContainer}>
-                <div className={styles.mapOverlay}>
-                  <span className={styles.mapPin}>
-                    <span className={styles.pinPulse}></span>
-                  </span>
-                  <span className={styles.mapLabel}>SOCIALEDGE HQ</span>
-                </div>
+                <iframe
+                  title="SocialEdge Islamabad Headquarters Map"
+                  src="https://maps.google.com/maps?q=Islamabad,%20Pakistan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, display: 'block' }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
