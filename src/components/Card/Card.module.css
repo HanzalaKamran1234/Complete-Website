@@ -1,0 +1,101 @@
+.card {
+  position: relative;
+  border-radius: var(--border-radius-md);
+  padding: 2.25rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card variants */
+.default {
+  background-color: var(--color-bg-white);
+  border: var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.lavender {
+  background-color: var(--color-bg-light);
+  border: var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-md);
+}
+
+.accent {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-bg-white);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-purple);
+}
+
+.accent p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.accent h1, .accent h2, .accent h3, .accent h4, .accent h5, .accent h6 {
+  color: var(--color-bg-white);
+}
+
+/* Interactivity and clickability */
+.interactive {
+  will-change: transform, box-shadow;
+}
+
+.interactive:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(109, 62, 207, 0.3);
+}
+
+.interactive.glass:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(212, 160, 23, 0.3);
+}
+
+.interactive.accent:hover {
+  box-shadow: 0 20px 40px rgba(75, 29, 140, 0.35);
+  transform: translateY(-6px);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* Border glow highlight on hover */
+.borderGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    600px circle at var(--x, 0px) var(--y, 0px),
+    rgba(212, 160, 23, 0.1) 0%,
+    rgba(212, 160, 23, 0) 50%
+  );
+}
+
+.card:hover .borderGlow {
+  opacity: 1;
+}
