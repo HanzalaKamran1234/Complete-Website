@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './TrustedBy.module.css';
+import SocialsRow from '../../components/SocialsRow/SocialsRow';
 
 export const TrustedBy: React.FC = () => {
   const logos = [
@@ -75,6 +76,10 @@ export const TrustedBy: React.FC = () => {
               {logo.svg}
             </div>
           ))}
+        </div>
+        <div className={styles.trustedSocialsContainer}>
+          <span className={styles.trustedSocialsLabel}>Connect with SocialEdge:</span>
+          <SocialsRow size={14} />
         </div>
       </div>
     </section>

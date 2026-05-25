@@ -746,3 +746,22 @@
   border-radius: 2px 2px 0 0;
   transition: height var(--transition-slow);
 }
+
+.portfolioSocials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px dashed rgba(var(--color-primary-rgb), 0.1);
+  flex-wrap: wrap;
+}
+
+.portfolioSocialsLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

@@ -394,3 +394,22 @@
     padding: 2rem 1.5rem;
   }
 }
+
+.servicesSocials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px dashed rgba(var(--color-primary-rgb), 0.1);
+  flex-wrap: wrap;
+}
+
+.servicesSocialsLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

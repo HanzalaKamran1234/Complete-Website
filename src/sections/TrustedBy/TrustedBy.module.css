@@ -73,3 +73,23 @@
     height: 26px;
   }
 }
+
+.trustedSocialsContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed rgba(var(--color-primary-rgb), 0.1);
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.trustedSocialsLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

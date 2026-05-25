@@ -568,3 +568,8 @@
     padding: 24px;
   }
 }
+
+.pageSocials {
+  display: flex;
+  margin-top: 25px;
+}

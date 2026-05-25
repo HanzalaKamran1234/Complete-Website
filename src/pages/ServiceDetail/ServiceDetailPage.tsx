@@ -3,6 +3,7 @@ import styles from './ServiceDetailPage.module.css';
 import { servicesData } from '../../data/services';
 import { projectsData } from '../../data/projects';
 import Button from '../../components/Button/Button';
+import SocialsRow from '../../components/SocialsRow/SocialsRow';
 
 interface ServiceDetailPageProps {
   serviceSlug: string;
@@ -66,6 +67,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ serviceSlu
           <h1 className={styles.title}>{service.title}</h1>
           <p className={styles.tagline}>{service.tagline}</p>
           <p className={styles.description}>{service.description}</p>
+          <div className={styles.pageSocials}>
+            <SocialsRow size={14} />
+          </div>
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './About.module.css';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import Button from '../../components/Button/Button';
+import SocialsRow from '../../components/SocialsRow/SocialsRow';
 
 export const About: React.FC = () => {
   const bioBullets = [
@@ -105,6 +106,10 @@ export const About: React.FC = () => {
                     14staressocialedge.steslights.com
                   </a>
                 </div>
+              </div>
+
+              <div className={styles.badgeSocials}>
+                <SocialsRow size={14} />
               </div>
 
               <a href="#contact" className={styles.followBtn}>

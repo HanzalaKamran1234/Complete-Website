@@ -233,3 +233,8 @@
     display: none;
   }
 }
+
+.floatingSidebarGrid {
+  flex-direction: column !important;
+  gap: 18px !important;
+}

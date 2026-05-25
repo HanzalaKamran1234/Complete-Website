@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './CaseStudyPage.module.css';
 import { projectsData } from '../../data/projects';
 import Button from '../../components/Button/Button';
+import SocialsRow from '../../components/SocialsRow/SocialsRow';
 
 interface CaseStudyPageProps {
   projectSlug: string;
@@ -129,6 +130,9 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectSlug }) => 
                     </a>
                   </span>
                 </div>
+              </div>
+              <div className={styles.sidebarSocials}>
+                <SocialsRow size={14} />
               </div>
             </div>
 

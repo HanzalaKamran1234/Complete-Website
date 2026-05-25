@@ -3,6 +3,7 @@ import styles from './Portfolio.module.css';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { projectsData } from '../../data/projects';
 import type { Project } from '../../data/projects';
+import SocialsRow from '../../components/SocialsRow/SocialsRow';
 
 export const Portfolio: React.FC = () => {
   // The 7 specific projects requested
@@ -199,6 +200,11 @@ export const Portfolio: React.FC = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className={styles.portfolioSocials}>
+        <span className={styles.portfolioSocialsLabel}>Connect with our design desk:</span>
+        <SocialsRow size={14} />
       </div>
     </section>
   );
