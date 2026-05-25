@@ -529,3 +529,61 @@
     left: -20px;
   }
 }
+
+.heroSocials {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+  border-top: var(--border-light);
+  padding-top: 1.5rem;
+  max-width: 480px;
+}
+
+.socialsLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 1px;
+}
+
+.socialsGrid {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.heroSocialLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.heroSocialLink svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.heroSocialLink:hover {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.heroSocialText {
+  color: var(--color-text-dark);
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: color var(--transition-fast);
+}
+
+.heroSocialLink:hover .heroSocialText {
+  color: var(--color-primary);
+}

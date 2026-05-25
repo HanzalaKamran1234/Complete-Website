@@ -1,213 +1,199 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Portfolio.module.css';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
-
-interface Project {
-  id: number;
-  title: string;
-  category: 'development' | 'ecommerce' | 'design';
-  categoryLabel: string;
-  tagline: string;
-  previewBg: string;
-  previewContent: React.ReactNode;
-}
+import { projectsData } from '../../data/projects';
+import type { Project } from '../../data/projects';
 
 export const Portfolio: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'development' | 'ecommerce' | 'design'>('all');
-
-  const filters = [
-    { value: 'all', label: 'All Projects' },
-    { value: 'development', label: 'Web Dev' },
-    { value: 'ecommerce', label: 'E-Commerce' },
-    { value: 'design', label: 'UI/UX Design' },
+  // The 7 specific projects requested
+  const targetSlugs = [
+    'esglinkanalytics',
+    'redsignature',
+    'jamals',
+    'holidaysmaker',
+    'pharmanook',
+    'collectionprestige',
+    'rukhnews'
   ];
 
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: 'Luxe & Co.',
-      category: 'ecommerce',
-      categoryLabel: 'E-Commerce Store',
-      tagline: 'High-end jewelry & fashion retailer digital storefront.',
-      previewBg: 'linear-gradient(135deg, #1f1a24 0%, #322639 100%)',
-      previewContent: (
-        <div className={styles.luxePreview}>
-          <div className={styles.luxeHeader}>
-            <div className={styles.luxeLogo}>LUXE</div>
-            <div className={styles.luxeMenu}>
-              <span></span><span></span>
-            </div>
-          </div>
-          <div className={styles.luxeHero}>
-            <span className={styles.luxeTag}>NEW COLLECTION</span>
-            <div className={styles.luxeTitle}>Timeless Elegance</div>
-            <div className={styles.luxeBtn}>SHOP NOW</div>
-          </div>
-          <div className={styles.luxeProducts}>
-            <div className={styles.luxeProdCard}></div>
-            <div className={styles.luxeProdCard}></div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 2,
-      title: 'Nova SaaS',
-      category: 'development',
-      categoryLabel: 'Web Application',
-      tagline: 'Enterprise cloud platform featuring high-fidelity analytics.',
-      previewBg: 'linear-gradient(135deg, #0e1726 0%, #162238 100%)',
-      previewContent: (
-        <div className={styles.novaPreview}>
-          <div className={styles.novaNav}>
-            <div className={styles.novaLogo}></div>
-            <div className={styles.novaCta}></div>
-          </div>
-          <div className={styles.novaContent}>
-            <div className={styles.novaHeading}></div>
-            <div className={styles.novaChart}>
-              <svg viewBox="0 0 100 40" fill="none" className={styles.novaSvgChart}>
-                <path d="M0,35 Q15,10 30,25 T60,5 T90,20 L100,20" stroke="var(--color-accent)" strokeWidth="3" fill="none" />
-                <path d="M0,35 Q15,10 30,25 T60,5 T90,20 L100,20 L100,40 L0,40 Z" fill="rgba(207, 135, 0, 0.05)" />
-                <circle cx="60" cy="5" r="3" fill="var(--color-accent-light)" />
-              </svg>
-            </div>
-            <div className={styles.novaGrid}>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 3,
-      title: 'Apex Capital',
-      category: 'design',
-      categoryLabel: 'UI/UX Design Case',
-      tagline: 'Asset management portal dashboard with ultra-clean interactions.',
-      previewBg: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-      previewContent: (
-        <div className={styles.apexPreview}>
-          <div className={styles.apexHeader}>
-            <span className={styles.apexDot}></span>
-            <span className={styles.apexDot}></span>
-            <span className={styles.apexDot}></span>
-          </div>
-          <div className={styles.apexBody}>
-            <div className={styles.apexSidebar}>
-              <span></span><span></span><span></span>
-            </div>
-            <div className={styles.apexMain}>
-              <div className={styles.apexTitle}></div>
-              <div className={styles.apexMetrics}>
-                <div className={styles.apexMetCard}></div>
-                <div className={styles.apexMetCard}></div>
-              </div>
-              <div className={styles.apexTable}></div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 4,
-      title: 'Solaria Energy',
-      category: 'development',
-      categoryLabel: 'Web Platform',
-      tagline: 'Marketing landing page for clean energy infrastructure firm.',
-      previewBg: 'linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%)',
-      previewContent: (
-        <div className={styles.solariaPreview}>
-          <div className={styles.solariaNav}>
-            <span className={styles.solariaLogo}></span>
-            <span className={styles.solariaLink}></span>
-          </div>
-          <div className={styles.solariaBody}>
-            <div className={styles.solariaBadge}></div>
-            <div className={styles.solariaTitle}>Solar Grid Analytics</div>
-            <div className={styles.solariaRow}>
-              <div className={styles.solariaCircle}>
-                <svg viewBox="0 0 36 36" className={styles.circularChart}>
-                  <path className={styles.circleBg} d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e6e6e6" strokeWidth="3" />
-                  <path className={styles.circle} strokeDasharray="82, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--color-primary-light)" strokeWidth="3" />
-                </svg>
-              </div>
-              <div className={styles.solariaLines}>
+  // Map slugs to projectsData to preserve exact requested order
+  const displayProjects = targetSlugs
+    .map((slug) => projectsData.find((p) => p.slug === slug))
+    .filter(Boolean) as Project[];
+
+  // Dynamic visual mockup renderer based on category/filter
+  const renderMockup = (project: Project) => {
+    const filterType = project.filter;
+    const colors = [
+      ['#4A1C74', '#6175E5'], // Purple to Blue
+      ['#2F104B', '#74A6C7'], // Dark Purple to Soft Blue
+      ['#0e1726', '#162238'], // Midnight Dark
+      ['#1e1b4b', '#4338ca'], // Indigo Slate
+      ['#0f172a', '#1e293b']  // Slate Dark
+    ];
+    const pair = colors[project.id % colors.length];
+    const gradient = `linear-gradient(135deg, ${pair[0]} 0%, ${pair[1]} 100%)`;
+
+    return (
+      <div className={styles.mockupBg} style={{ background: gradient }}>
+        {filterType === 'ecommerce' && (
+          <div className={styles.mockupContent}>
+            <div className={styles.mockupHeader}>
+              <div className={styles.mockupLogo} style={{ background: 'var(--color-accent)' }}></div>
+              <div className={styles.mockupNav}>
                 <span></span><span></span>
               </div>
             </div>
+            <div className={styles.mockupEcomGrid}>
+              <div className={styles.mockupEcomCard}>
+                <div className={styles.mockupEcomImg}></div>
+                <div className={styles.mockupEcomTitle}></div>
+                <div className={styles.mockupEcomPrice}></div>
+              </div>
+              <div className={styles.mockupEcomCard}>
+                <div className={styles.mockupEcomImg}></div>
+                <div className={styles.mockupEcomTitle}></div>
+                <div className={styles.mockupEcomPrice}></div>
+              </div>
+            </div>
           </div>
-        </div>
-      )
-    }
-  ];
+        )}
 
-  const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(project => project.category === activeFilter);
+        {filterType === 'corporate' && (
+          <div className={styles.mockupContent}>
+            <div className={styles.mockupHeader}>
+              <div className={styles.mockupLogo}></div>
+              <div className={styles.mockupNav}>
+                <span></span><span></span>
+              </div>
+            </div>
+            <div className={styles.mockupChart}>
+              <div className={styles.mockupChartBar} style={{ height: '30%' }}></div>
+              <div className={styles.mockupChartBar} style={{ height: '50%' }}></div>
+              <div className={styles.mockupChartBar} style={{ height: '80%' }}></div>
+              <div className={styles.mockupChartBar} style={{ height: '45%' }}></div>
+            </div>
+            <div className={styles.mockupGrid}>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        )}
+
+        {filterType === 'business' && (
+          <div className={styles.mockupContent}>
+            <div className={styles.mockupHeader}>
+              <div className={styles.mockupLogo} style={{ background: 'var(--color-accent)' }}></div>
+              <div className={styles.mockupNav}>
+                <span></span><span></span>
+              </div>
+            </div>
+            <div className={styles.mockupHero}>
+              <div className={styles.mockupHeading} style={{ width: '85%', height: '12px' }}></div>
+              <div className={styles.mockupSubheading} style={{ width: '65%' }}></div>
+            </div>
+            <div style={{ height: '14px', background: 'var(--color-primary-light)', borderRadius: '3px', width: '45px', marginTop: 'auto' }}></div>
+          </div>
+        )}
+
+        {filterType === 'news' && (
+          <div className={styles.mockupContent} style={{ gap: '8px' }}>
+            <div style={{ display: 'flex', gap: '8px', borderBottom: '1px solid rgba(0, 0, 0, 0.05)', paddingBottom: '6px' }}>
+              <span style={{ fontSize: '9px', fontWeight: 'bold', color: 'var(--color-primary)' }}>PORTAL NEWS</span>
+              <span style={{ fontSize: '9px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>Live</span>
+            </div>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <div style={{ width: '35px', height: '35px', background: 'rgba(0,0,0,0.05)', borderRadius: '3px' }}></div>
+              <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <div style={{ height: '8px', width: '90%', background: '#111', borderRadius: '2px' }}></div>
+                <div style={{ height: '5px', width: '40%', background: 'var(--color-text-muted)', borderRadius: '1.5px' }}></div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {(filterType === 'educational' || filterType === 'travel' || filterType === 'portfolio' || filterType === 'custom') && (
+          <div className={styles.mockupContent}>
+            <div className={styles.mockupHeader}>
+              <div className={styles.mockupLogo} style={{ background: 'var(--color-primary-light)' }}></div>
+              <div className={styles.mockupNav}>
+                <span></span><span></span>
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: '10px', alignItems: 'center', margin: 'auto 0' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'linear-gradient(to right, var(--color-accent), var(--color-accent-light))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" strokeWidth="2.5">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                </svg>
+              </div>
+              <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <div style={{ height: '8px', width: '80%', background: 'var(--color-text-dark)', borderRadius: '2px' }}></div>
+                <div style={{ height: '6px', width: '50%', background: 'var(--color-text-muted)', borderRadius: '2px' }}></div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <section id="portfolio" className={`${styles.portfolio} section-padding`}>
       <div className="container">
         <SectionHeader
-          badge="PORTFOLIO"
+          badge="PORTFOLIO HIGHLIGHTS"
           title={
             <>
-              Successfully Delivered <span className="text-gradient">Digital Masterpieces</span>
+              Delivering <span className="text-gradient">Digital Masterpieces</span>
             </>
           }
-          description="A selection of high-converting, premium web assets designed and developed by our team of specialists."
+          description="Explore high-converting, custom-engineered digital systems and SaaS storefronts designed to scale commercial influence."
         />
-
-        {/* Filter Navigation */}
-        <div className={styles.filterContainer}>
-          {filters.map((filter) => (
-            <button
-              key={filter.value}
-              className={`${styles.filterBtn} ${activeFilter === filter.value ? styles.filterBtnActive : ''}`}
-              onClick={() => setActiveFilter(filter.value as any)}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </div>
 
         {/* Portfolio Projects Grid */}
         <div className={`${styles.portfolioGrid} reveal`}>
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className={styles.portfolioCard}
-              style={{ background: project.previewBg }}
-            >
+          {displayProjects.map((project) => (
+            <div key={project.id} className={styles.portfolioCard}>
               {/* Browser frame decoration */}
               <div className={styles.cardBrowserHeader}>
                 <div className={styles.browserDots}>
-                  <span className={styles.dot}></span>
-                  <span className={styles.dot}></span>
-                  <span className={styles.dot}></span>
+                  <span className={`${styles.dot} ${styles.dotRed}`}></span>
+                  <span className={`${styles.dot} ${styles.dotYellow}`}></span>
+                  <span className={`${styles.dot} ${styles.dotGreen}`}></span>
                 </div>
-                <div className={styles.browserAddressBar}>{project.title.toLowerCase().replace(/\s+/g, '')}.com</div>
+                <div className={styles.browserAddressBar}>{project.title}</div>
               </div>
 
-              {/* Render unique mockup components */}
+              {/* Render dynamic mockup visual placeholder */}
               <div className={styles.previewContainer}>
-                {project.previewContent}
+                {renderMockup(project)}
               </div>
 
               {/* Glassmorphic info overlay */}
               <div className={styles.overlay}>
                 <div className={styles.overlayContent}>
-                  <span className={styles.projectCategory}>{project.categoryLabel}</span>
+                  <span className={styles.projectCategory}>{project.category}</span>
                   <h3 className={styles.projectTitle}>{project.title}</h3>
-                  <p className={styles.projectTagline}>{project.tagline}</p>
-                  <a href="#contact" className={styles.viewLink}>
-                    View Project Case
-                    <svg className={styles.viewArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </a>
+                  <p className={styles.projectTagline}>{project.description}</p>
+                  
+                  <div className={styles.actionRow}>
+                    <a href={`#project/${project.slug}`} className={styles.viewLink}>
+                      Explore Case
+                      <svg className={styles.viewArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                      </svg>
+                    </a>
+                    
+                    <a href={project.details.liveUrl} target="_blank" rel="noopener noreferrer" className={styles.liveLink}>
+                      Live Site
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -219,4 +205,3 @@ export const Portfolio: React.FC = () => {
 };
 
 export default Portfolio;
-export { Portfolio as default_Portfolio };

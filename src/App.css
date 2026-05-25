@@ -182,3 +182,54 @@
     border-right-color: var(--border);
   }
 }
+
+/* Floating Social Sidebar */
+.floatingSidebar {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  z-index: 1001;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--border-glass);
+  padding: 20px 10px;
+  border-radius: var(--border-radius-full);
+  box-shadow: var(--shadow-md);
+}
+
+.floatingSidebarLink {
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floatingSidebarLink svg {
+  width: 18px;
+  height: 18px;
+}
+
+.floatingSidebarLink:hover {
+  color: var(--color-primary);
+  transform: scale(1.15) translateY(-2px);
+}
+
+.sidebarLine {
+  width: 1.5px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
+  margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+  .floatingSidebar {
+    display: none;
+  }
+}
