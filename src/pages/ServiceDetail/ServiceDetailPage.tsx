@@ -3,7 +3,7 @@ import styles from './ServiceDetailPage.module.css';
 import { servicesData } from '../../data/services';
 import { projectsData } from '../../data/projects';
 import Button from '../../components/Button/Button';
-import SocialsRow from '../../components/SocialsRow/SocialsRow';
+import FloatingSocials from '../../components/FloatingSocials/FloatingSocials';
 
 interface ServiceDetailPageProps {
   serviceSlug: string;
@@ -59,17 +59,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ serviceSlu
         </div>
       </div>
 
-      {/* Hero Section */}
       <section className={styles.hero}>
+        <FloatingSocials preset="serviceDetail" />
         <div className={styles.heroGlow}></div>
         <div className={`${styles.heroContent} container`}>
           <span className={styles.badge}>Service Detail</span>
           <h1 className={styles.title}>{service.title}</h1>
           <p className={styles.tagline}>{service.tagline}</p>
           <p className={styles.description}>{service.description}</p>
-          <div className={styles.pageSocials}>
-            <SocialsRow size={14} />
-          </div>
         </div>
       </section>
 

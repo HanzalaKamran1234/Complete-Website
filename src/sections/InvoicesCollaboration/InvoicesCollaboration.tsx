@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './InvoicesCollaboration.module.css';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
-import SocialsRow from '../../components/SocialsRow/SocialsRow';
+import FloatingSocials from '../../components/FloatingSocials/FloatingSocials';
 
 export const InvoicesCollaboration: React.FC = () => {
   const collaborationCards = [
@@ -79,6 +79,7 @@ export const InvoicesCollaboration: React.FC = () => {
 
   return (
     <section id="collaboration" className={`${styles.collaboration} section-padding`}>
+      <FloatingSocials preset="collaboration" />
       <div className={styles.colGlow}></div>
       <div className="container">
         <SectionHeader
@@ -116,11 +117,6 @@ export const InvoicesCollaboration: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className={styles.colSocials}>
-          <span className={styles.colSocialsLabel}>Connect with our client operations desk:</span>
-          <SocialsRow size={14} />
         </div>
       </div>
     </section>

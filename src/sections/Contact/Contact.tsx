@@ -4,6 +4,7 @@ import Button from '../../components/Button/Button';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import Card from '../../components/Card/Card';
 import SocialsRow from '../../components/SocialsRow/SocialsRow';
+import FloatingSocials from '../../components/FloatingSocials/FloatingSocials';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -31,6 +32,7 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className={`${styles.contact} section-padding`}>
+      <FloatingSocials preset="contact" />
       <div className="container">
         <SectionHeader
           badge="CONTACT US"

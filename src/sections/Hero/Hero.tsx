@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Hero.module.css';
 import Button from '../../components/Button/Button';
-import SocialsRow from '../../components/SocialsRow/SocialsRow';
+import FloatingSocials from '../../components/FloatingSocials/FloatingSocials';
 
 export const Hero: React.FC = () => {
   return (
@@ -12,6 +12,8 @@ export const Hero: React.FC = () => {
         <div className={`${styles.glowBlob} ${styles.blobBlue}`}></div>
         <div className={`${styles.glowBlob} ${styles.blobGold}`}></div>
       </div>
+
+      <FloatingSocials preset="hero" />
 
       <div className={`${styles.heroContainer} container`}>
         <div className={styles.grid}>
@@ -36,11 +38,6 @@ export const Hero: React.FC = () => {
               </a>
             </div>
 
-            {/* Inline Social Icons */}
-            <div className={styles.heroSocials}>
-              <span className={styles.socialsLabel}>Follow SocialEdge:</span>
-              <SocialsRow size={14} />
-            </div>
 
             <div className={styles.heroTrust}>
               <p className={styles.trustText}>Trusted by industry leaders worldwide</p>

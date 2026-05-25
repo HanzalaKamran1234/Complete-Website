@@ -3,7 +3,7 @@ import styles from './PortfolioPage.module.css';
 import { projectsData } from '../../data/projects';
 import type { Project } from '../../data/projects';
 import Button from '../../components/Button/Button';
-import SocialsRow from '../../components/SocialsRow/SocialsRow';
+import FloatingSocials from '../../components/FloatingSocials/FloatingSocials';
 
 export const PortfolioPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
@@ -171,6 +171,7 @@ export const PortfolioPage: React.FC = () => {
     <div className={styles.portfolioPage}>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <FloatingSocials preset="portfolioPage" />
         <div className={styles.heroGlow}></div>
         <div className={`${styles.heroContent} container`}>
           <span className={styles.badge}>Our Work</span>
@@ -181,9 +182,6 @@ export const PortfolioPage: React.FC = () => {
             Explore our curated gallery of 28 bespoke websites, corporate portals, and software systems. 
             Each project is meticulously built from scratch using clean code and industry-leading design paradigms.
           </p>
-          <div className={styles.pageSocials}>
-            <SocialsRow size={14} />
-          </div>
 
           {/* Stats Summary Counter */}
           <div className={styles.statsGrid}>

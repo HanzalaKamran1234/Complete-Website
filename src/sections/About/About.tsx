@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './About.module.css';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import Button from '../../components/Button/Button';
-import SocialsRow from '../../components/SocialsRow/SocialsRow';
+import FloatingSocials from '../../components/FloatingSocials/FloatingSocials';
 
 export const About: React.FC = () => {
   const bioBullets = [
@@ -14,6 +14,7 @@ export const About: React.FC = () => {
 
   return (
     <section id="about" className={`${styles.about} section-padding`}>
+      <FloatingSocials preset="about" />
       <div className="container">
         <SectionHeader
           badge="ABOUT US"
@@ -106,10 +107,6 @@ export const About: React.FC = () => {
                     14staressocialedge.steslights.com
                   </a>
                 </div>
-              </div>
-
-              <div className={styles.badgeSocials}>
-                <SocialsRow size={14} />
               </div>
 
               <a href="#contact" className={styles.followBtn}>

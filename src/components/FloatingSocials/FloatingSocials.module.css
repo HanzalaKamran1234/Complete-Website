@@ -1,0 +1,120 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Keep behind text layers */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  pointer-events: auto; /* Allow users to hover or click on the floating card! */
+  animation: floatInAir 6s infinite ease-in-out;
+  opacity: 0.85;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.12) rotate(0deg) !important;
+  opacity: 1;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+  cursor: pointer;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.iconWrapper svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.2;
+}
+
+/* Individual Brand Styling overrides */
+.linkedin {
+  background: linear-gradient(135deg, rgba(0, 119, 181, 0.25) 0%, rgba(0, 160, 220, 0.2) 100%);
+  border: 1px solid rgba(0, 119, 181, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 119, 181, 0.12);
+}
+
+.linkedin:hover {
+  background: linear-gradient(135deg, rgba(0, 119, 181, 0.8) 0%, rgba(0, 160, 220, 0.8) 100%);
+  box-shadow: 0 15px 30px rgba(0, 119, 181, 0.3) !important;
+  border-color: rgba(0, 119, 181, 0.6);
+}
+
+.facebook {
+  background: linear-gradient(135deg, rgba(24, 119, 242, 0.25) 0%, rgba(59, 89, 152, 0.2) 100%);
+  border: 1px solid rgba(24, 119, 242, 0.35);
+  box-shadow: 0 10px 25px rgba(24, 119, 242, 0.12);
+}
+
+.facebook:hover {
+  background: linear-gradient(135deg, rgba(24, 119, 242, 0.8) 0%, rgba(59, 89, 152, 0.8) 100%);
+  box-shadow: 0 15px 30px rgba(24, 119, 242, 0.3) !important;
+  border-color: rgba(24, 119, 242, 0.6);
+}
+
+.instagram {
+  background: linear-gradient(135deg, rgba(131, 58, 180, 0.25) 0%, rgba(225, 48, 108, 0.25) 50%, rgba(253, 29, 29, 0.2) 100%);
+  border: 1px solid rgba(225, 48, 108, 0.35);
+  box-shadow: 0 10px 25px rgba(225, 48, 108, 0.12);
+}
+
+.instagram:hover {
+  background: linear-gradient(135deg, rgba(131, 58, 180, 0.75) 0%, rgba(225, 48, 108, 0.75) 50%, rgba(253, 29, 29, 0.75) 100%);
+  box-shadow: 0 15px 30px rgba(225, 48, 108, 0.3) !important;
+  border-color: rgba(225, 48, 108, 0.6);
+}
+
+.google {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.35) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.google .iconWrapper {
+  color: var(--color-primary); /* Dark purple letter */
+}
+
+.google:hover {
+  background: #FFFFFF;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
+  border-color: rgba(var(--color-primary-rgb), 0.3);
+}
+
+/* Floating animation keyframes matching preset rotation bounds */
+@keyframes floatInAir {
+  0% {
+    transform: translateY(0px) rotate(var(--rot-start, 0deg));
+  }
+  50% {
+    transform: translateY(-15px) rotate(var(--rot-mid, 5deg));
+  }
+  100% {
+    transform: translateY(0px) rotate(var(--rot-start, 0deg));
+  }
+}
+
+/* Hide background decors on narrow viewports to avoid layout overlaps */
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}

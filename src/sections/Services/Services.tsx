@@ -3,7 +3,7 @@ import styles from './Services.module.css';
 import Card from '../../components/Card/Card';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import Button from '../../components/Button/Button';
-import SocialsRow from '../../components/SocialsRow/SocialsRow';
+import FloatingSocials from '../../components/FloatingSocials/FloatingSocials';
 
 interface Package {
   name: string;
@@ -270,6 +270,7 @@ export const Services: React.FC = () => {
 
   return (
     <section id="services" className={`${styles.services} section-padding`}>
+      <FloatingSocials preset="services" />
       <div className="container">
         <SectionHeader
           badge="OUR CAPABILITIES"
@@ -373,11 +374,6 @@ export const Services: React.FC = () => {
           </div>
         </div>
       )}
-      
-      <div className={styles.servicesSocials}>
-        <span className={styles.servicesSocialsLabel}>Connect with our engineering desk:</span>
-        <SocialsRow size={14} />
-      </div>
     </section>
   );
 };

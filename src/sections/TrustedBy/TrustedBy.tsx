@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './TrustedBy.module.css';
-import SocialsRow from '../../components/SocialsRow/SocialsRow';
+import FloatingSocials from '../../components/FloatingSocials/FloatingSocials';
 
 export const TrustedBy: React.FC = () => {
   const logos = [
@@ -68,6 +68,7 @@ export const TrustedBy: React.FC = () => {
 
   return (
     <section className={styles.trusted}>
+      <FloatingSocials preset="trusted" />
       <div className={`${styles.container} container`}>
         <p className={styles.title}>EMPOWERING LEADING BRANDS WORLDWIDE</p>
         <div className={styles.logoRow}>
@@ -76,10 +77,6 @@ export const TrustedBy: React.FC = () => {
               {logo.svg}
             </div>
           ))}
-        </div>
-        <div className={styles.trustedSocialsContainer}>
-          <span className={styles.trustedSocialsLabel}>Connect with SocialEdge:</span>
-          <SocialsRow size={14} />
         </div>
       </div>
     </section>
