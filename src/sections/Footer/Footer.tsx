@@ -44,6 +44,10 @@ export const Footer: React.FC = () => {
             <p className={styles.brandDesc}>
               Elevate Your Brand with Social Edge. We craft premium web applications, bespoke digital systems, and luxury branding assets.
             </p>
+            <div className={styles.footerContact}>
+              <a href="mailto:14starssocaileedge@gmail.com" className={styles.footerContactLink}>14starssocaileedge@gmail.com</a>
+              <a href="https://wa.me/923117501630" className={styles.footerContactLink}>+92 311 7501630</a>
+            </div>
             <div className={styles.socials}>
               <SocialsRow size={14} />
             </div>
