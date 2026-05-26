@@ -1,12 +1,14 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
+import CinematicHero from '../components/CinematicHero';
 import TrustedBy from '../components/TrustedBy';
-import Services from '../components/Services';
-import Portfolio from '../components/Portfolio';
-import InvoicesCollaboration from '../components/InvoicesCollaboration';
+import InteractiveCanvas from '../components/InteractiveCanvas';
+import PrestigePortfolio from '../components/PrestigePortfolio';
+import EliteDashboardPreview from '../components/EliteDashboardPreview';
+import CreativeProcess from '../components/CreativeProcess';
 import About from '../components/About';
-import Contact from '../components/Contact';
+import LuxuryTestimonials from '../components/LuxuryTestimonials';
+import CinematicContact from '../components/CinematicContact';
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -14,13 +16,15 @@ export default function Home() {
     <>
       <Navbar />
       <main className="flex-1 w-full bg-background select-none">
-        <Hero />
+        <CinematicHero />
         <TrustedBy />
-        <Services />
-        <Portfolio />
-        <InvoicesCollaboration />
+        <InteractiveCanvas />
+        <PrestigePortfolio />
+        <EliteDashboardPreview />
+        <CreativeProcess />
         <About />
-        <Contact />
+        <LuxuryTestimonials />
+        <CinematicContact />
       </main>
       <Footer />
     </>
